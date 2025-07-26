@@ -1,0 +1,115 @@
+/* Custom styles for the page */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0a;
+    color: #e5e7eb;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+.glass-card:hover {
+    border-color: rgba(79, 70, 229, 0.5);
+    transform: translateY(-5px);
+}
+.nav-link {
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #818cf8;
+}
+.btn-primary {
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+.section-title {
+    background: -webkit-linear-gradient(#eee, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.modal-overlay {
+    transition: opacity 0.3s ease;
+}
+.modal-content {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+/* Typewriter styles */
+.typewriter-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: pre-wrap; /* Allows wrapping */
+    vertical-align: bottom;
+}
+.typewriter-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background-color: #e5e7eb;
+    animation: blink 0.7s infinite;
+    vertical-align: bottom;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Skills Tree Styles */
+.skills-root div { /* Target the div inside the root container */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    position: relative;
+}
+
+.skills-connector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+.pipe {
+    stroke: rgba(139, 92, 246, 0.5); /* Increased opacity */
+    stroke-width: 6; /* Increased width */
+    fill: none;
+}
+.liquid {
+    stroke: #8b5cf6;
+    stroke-width: 4; /* Increased width */
+    fill: none;
+    stroke-dasharray: 20 40;
+    animation: flow 2s linear infinite;
+}
+@keyframes flow {
+    from {
+        stroke-dashoffset: 60;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
