@@ -1,285 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divanshu Thakur - AI & Automation</title>
-    
-    <!-- External Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
-    <!-- Your Custom Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Divanshu - Software Developer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased">
-    <!-- Background Canvas -->
-    <canvas id="bg-canvas"></canvas>
+<body>
 
-    <div class="relative z-10">
-        <!-- Header -->
-        <header class="bg-black/30 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-                <h1 class="text-xl font-semibold text-white">Divanshu Thakur</h1>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-gray-300 nav-link">About</a>
-                    <a href="#skills" class="text-gray-300 nav-link">Skills</a>
-                    <a href="#projects" class="text-gray-300 nav-link">Projects</a>
-                    <a href="#certifications" class="text-gray-300 nav-link">Certifications</a>
-                    <a href="#contact" class="text-gray-300 nav-link">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button id="menu-btn" class="text-gray-300"><i data-feather="menu" class="w-6 h-6"></i></button>
-                </div>
-            </nav>
-        </header>
+<!-- New Background Scenery -->
+<div class="scene">
+    <div class="mountains layer"></div>
+    <div class="hills layer"></div>
+    <div class="forest layer"></div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden fixed inset-0 bg-black/90 z-50">
-            <div class="flex flex-col items-center justify-center h-full">
-                <button id="close-btn" class="absolute top-6 right-6 text-gray-300"><i data-feather="x" class="w-8 h-8"></i></button>
-                <div class="flex flex-col items-center space-y-8">
-                    <a href="#about" class="text-2xl font-medium text-gray-300 mobile-nav-link">About</a>
-                    <a href="#skills" class="text-2xl font-medium text-gray-300 mobile-nav-link">Skills</a>
-                    <a href="#projects" class="text-2xl font-medium text-gray-300 mobile-nav-link">Projects</a>
-                    <a href="#certifications" class="text-2xl font-medium text-gray-300 mobile-nav-link">Certifications</a>
-                    <a href="#contact" class="text-2xl font-medium text-gray-300 mobile-nav-link">Contact</a>
-                </div>
-            </div>
-        </div>
+<!-- Background Canvas for Rain and Thunder -->
+<canvas id="background-canvas"></canvas>
 
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Hero Section -->
-            <section id="home" class="py-24 md:py-40 text-center">
-                <h2 class="text-5xl md:text-7xl font-bold tracking-tight section-title">
-                    Creative Web Development,<br>Intelligent AI Solutions.
-                </h2>
-                <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-400">
-                    A final-year Computer Science student passionate about building beautiful, functional websites and intelligent systems. I specialize in full-stack development, Generative AI, and creating powerful automation workflows.
-                </p>
-                <div class="mt-8">
-                    <a href="#projects" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg">
-                        Explore My Work
-                    </a>
-                </div>
-            </section>
+<!-- Navbar -->
+<header class="flex justify-between items-center px-8 py-6 fixed w-full top-0 bg-black/20 backdrop-blur-sm z-50">
+    <a href="index.html" class="text-xl font-bold">Divanshu.</a>
+    <nav class="space-x-8 text-gray-300">
+        <a href="index.html" class="hover:text-teal-400">Home</a>
+        <a href="project.html" class="hover:text-teal-400">Projects</a>
+        <a href="skills.html" class="hover:text-teal-400">Skills</a>
+        <a href="certifications.html" class="hover:text-teal-400">Certifications</a>
+        <a href="about.html" class="hover:text-teal-400">About Me</a>
+    </nav>
+</header>
 
-            <!-- About Section -->
-            <section id="about" class="py-16 md:py-24">
-                <div class="max-w-4xl mx-auto">
-                    <h3 class="text-3xl md:text-4xl font-bold section-title mb-8 text-center">About Me</h3>
-                    <div class="text-gray-300 leading-relaxed text-left">
-                        <p id="typewriter-1" class="mb-4"></p>
-                        <p id="typewriter-2"></p>
-                    </div>
-                    <div class="mt-10 text-center">
-                        <a href="Resume.html" target="_blank" rel="noopener noreferrer" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg inline-flex items-center group">
-                            View Full Resume
-                            <i data-feather="arrow-right" class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Skills Section -->
-            <section id="skills" class="py-16 md:py-24">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold section-title">My Technical Toolkit</h3>
-                </div>
-                <div id="skills-tree" class="relative flex flex-col md:flex-row justify-center items-center min-h-[450px] mt-8 p-4">
-                    <!-- SVG Connectors -->
-                    <svg class="skills-connector hidden md:block">
-                        <!-- Paths will be drawn by JS -->
-                        <path id="pipe-left" class="pipe" d=""></path>
-                        <path id="pipe-right" class="pipe" d=""></path>
-                        <path id="liquid-left" class="liquid" d=""></path>
-                        <path id="liquid-right" class="liquid" d=""></path>
-                    </svg>
-
-                    <!-- Root Node -->
-                    <div class="skills-root z-10">
-                        <div class="glass-card">
-                            <i data-feather="tool" class="w-12 h-12 text-indigo-400"></i>
-                        </div>
-                    </div>
-
-                    <!-- Left Branch: Technical Skills -->
-                    <div class="w-full max-w-sm mt-8 md:mt-0 md:absolute md:right-1/2 md:mr-16 lg:mr-24">
-                        <div class="glass-card p-8">
-                            <h4 class="text-xl font-semibold text-white text-center mb-6">Technical</h4>
-                            <div class="grid grid-cols-3 gap-5">
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">Python</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">Java</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">HTML & CSS</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">Tailwind CSS</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">JavaScript</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">SQL</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Branch: AI & Automation -->
-                    <div class="w-full max-w-sm mt-8 md:mt-0 md:absolute md:left-1/2 md:ml-16 lg:ml-24">
-                        <div class="glass-card p-8">
-                            <h4 class="text-xl font-semibold text-white text-center mb-6">AI & Automation</h4>
-                            <div class="grid grid-cols-3 gap-5">
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">Generative AI</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">AI Agents</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">n8n Automation</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">Machine Learning</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">Hugging Face</span>
-                                </div>
-                                <div class="bg-gray-700/50 rounded-lg aspect-square flex items-center justify-center p-4 text-center transition-colors hover:bg-gray-700">
-                                    <span class="font-medium text-sm sm:text-base">API Integration</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" class="pb-16 md:pb-24">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold section-title">Featured Projects</h3>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="glass-card overflow-hidden cursor-pointer project-card p-6" data-title="AI Workflow Automation" data-details="This project involved creating a fully automated lead generation pipeline. It uses n8n to scrape data from LinkedIn, enriches it with Generative AI for personalized messaging, and then syncs the results to a CRM.">
-                        <h4 class="text-lg font-semibold text-white">AI Workflow Automation</h4>
-                        <p class="mt-2 text-gray-400 text-sm">Automated lead generation pipeline using LinkedIn, n8n, and GenAI.</p>
-                    </div>
-                    <a href="https://huggingface.co/spaces/divanshuthakur111/Portfolio-Chat-Assistant" target="_blank" rel="noopener noreferrer" class="block">
-                        <div class="glass-card overflow-hidden h-full p-6">
-                            <h4 class="text-lg font-semibold text-white">Personal Assistant</h4>
-                            <p class="mt-2 text-gray-400 text-sm">Interactive assistant powered by GPT-4o-mini. Chat live in a new tab!</p>
-                        </div>
-                    </a>
-                    <div class="glass-card overflow-hidden cursor-pointer project-card p-6" data-title="Personal Portfolio" data-details="A clean, responsive portfolio site (the one you're on!) built from scratch with Tailwind CSS to showcase my skills and projects. It is designed to be fully mobile-friendly and easy to navigate.">
-                        <h4 class="text-lg font-semibold text-white">Personal Portfolio</h4>
-                        <p class="mt-2 text-gray-400 text-sm">Responsive portfolio site built with Tailwind CSS.</p>
-                    </div>
-                    <!-- Resume Card -->
-                    <a href="Resume.html" target="_blank" rel="noopener noreferrer" class="block">
-                        <div class="glass-card overflow-hidden h-full p-6 flex flex-col">
-                            <div class="flex-grow">
-                                <h4 class="text-lg font-semibold text-white">View My Resume</h4>
-                                <p class="mt-2 text-gray-400 text-sm">A professional, ATS-friendly summary of my skills and experience.</p>
-                            </div>
-                            <div class="mt-4 text-right">
-                                <i data-feather="file-text" class="w-6 h-6 text-indigo-400 inline-block"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Certifications Section -->
-            <section id="certifications" class="py-16 md:py-24">
-                <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold section-title">Certifications</h3>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="glass-card p-6 flex items-center space-x-4">
-                        <i data-feather="award" class="w-8 h-8 text-indigo-400 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-white">LLM Course: Fine-tuning</p>
-                            <p class="text-sm text-gray-400">Hugging Face</p>
-                        </div>
-                        <a href="#" class="ml-auto text-indigo-400 hover:text-indigo-300 transition-colors">View</a>
-                    </div>
-                    <div class="glass-card p-6 flex items-center space-x-4">
-                        <i data-feather="award" class="w-8 h-8 text-indigo-400 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-white">MCP: Automation in Production</p>
-                            <p class="text-sm text-gray-400">Hugging Face</p>
-                        </div>
-                        <a href="https://cdn-lfs-us-1.hf.co/repos/3a/43/3a43a361f40c6c8707c48e404bae19f3155f3472e95b1689becdcbac6fcd4a91/cacea8d3038f6928cb2d9c312075e6da28dda074f5727cf602732615f746c075?response-content-disposition=inline%3B+filename*%3DUTF-8%27%272025-07-17.png%3B+filename%3D%222025-07-17.png%22%3B&response-content-type=image%2Fpng&Expires=1753197496&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc1MzE5NzQ5Nn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmhmLmNvL3JlcG9zLzNhLzQzLzNhNDNhMzYxZjQwYzZjODcwN2M0OGU0MDRiYWUxOWYzMTU1ZjM0NzJlOTViMTY4OWJlY2RjYmFjNmZjZDRhOTEvY2FjZWE4ZDMwMzhmNjkyOGNiMmQ5YzMxMjA3NWU2ZGEyOGRkYTA3NGY1NzI3Y2Y2MDI3MzI2MTVmNzQ2YzA3NT9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSomcmVzcG9uc2UtY29udGVudC10eXBlPSoifV19&Signature=rdUT%7ErmMz3am%7EcIZzeg4KsvgWKLoZkURgqsRc1QcK6uyoT7eoqv7fBpbL6dHsxCeMGvrt0zfqE8BjkbEsVEgDPKTAfbd2XFgPDwESNhAenDF1%7E%7ES7OdeK9rvrAdLjJxf%7EH6NbaGLhtSV34n2t67hWCkGZ0QFN4VhB733YdSsWtHslzm04fmPPpL2zhbDXyymBxNfbJv1eagAA89ISeP5OG9ScAJWd1Da1BJuJ%7ELrvirw6bPlpAgT2FJP9zLbnyq2eFeunCHEGGyoObX6rePrc1yECDH6MVrS3JAJbNiOU67An%7EGFuKgb29FgBBz9R1GWlS6Pee3kFx-9SQYJgdx7PQ__&Key-Pair-Id=K24J24Z295AEI9" class="ml-auto text-indigo-400 hover:text-indigo-300 transition-colors">View</a>
-                    </div>
-                    <div class="glass-card p-6 flex items-center space-x-4">
-                        <i data-feather="award" class="w-8 h-8 text-indigo-400 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-white">Python for Everybody</p>
-                            <p class="text-sm text-gray-400">University of Michigan</p>
-                        </div>
-                        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/KGHF0GMPWY4Y" class="ml-auto text-indigo-400 hover:text-indigo-300 transition-colors">View</a>
-                    </div>
-                    <div class="glass-card p-6 flex items-center space-x-4">
-                        <i data-feather="award" class="w-8 h-8 text-indigo-400 flex-shrink-0"></i>
-                        <div>
-                            <p class="font-semibold text-white">n8n Level 2 (Automation)</p>
-                            <p class="text-sm text-gray-400">n8n</p>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1EyOz5CKAQRzsO_6fe4t14rYjTN2FG2ol/view" class="ml-auto text-indigo-400 hover:text-indigo-300 transition-colors">View</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" class="py-16 md:py-24">
-                <div class="glass-card max-w-3xl mx-auto p-8 text-center">
-                    <h3 class="text-3xl font-bold text-white">Let's build something together.</h3>
-                    <p class="mt-3 text-gray-400">I'm currently available for freelance projects and internship opportunities.</p>
-                    <div class="mt-8 flex justify-center items-center space-x-8">
-                         <a href="mailto:divanshuthakur021@gmail.com" class="text-gray-400 hover:text-indigo-400 transition-colors">
-                            <i data-feather="mail" class="w-8 h-8"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/divanshu-thakur-b5b50430b" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-colors">
-                            <i data-feather="linkedin" class="w-8 h-8"></i>
-                        </a>
-                        <a href="https://github.com/Divanshu-all" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-indigo-400 transition-colors">
-                            <i data-feather="github" class="w-8 h-8"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="text-center py-8 border-t border-gray-800 mt-12">
-            <p class="text-gray-500 text-sm">&copy; 2024 Divanshu Thakur. All rights reserved.</p>
-        </footer>
+<!-- Hero Section -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-6 relative z-10">
+    <h2 class="text-4xl md:text-6xl font-bold mb-4 opacity-0" id="hero-title">
+        Hello. I'm Divanshu,
+        <span class="text-teal-400 typing" id="role-text">Software Developer</span>
+    </h2>
+    <p class="text-gray-200 max-w-xl mb-8 opacity-0" id="hero-subtext">
+        I create intelligent AI solutions and robust web applications. Let's build something amazing together.
+    </p>
+    <div class="flex gap-4 opacity-0" id="hero-buttons">
+        <a href="lets-Connect.html" class="bg-teal-500 px-6 py-3 rounded-lg hover:bg-teal-600 transition">Got a project?</a>
+        <a href="Resume.html" class="border border-gray-500 px-6 py-3 rounded-lg hover:border-teal-500 transition">My Resume</a>
     </div>
-    
-    <!-- Project Modal -->
-    <div id="project-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 modal-overlay opacity-0">
-        <div class="bg-gray-900 border border-gray-700 rounded-lg shadow-xl w-full max-w-lg modal-content transform scale-95 opacity-0">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
-                    <button id="modal-close-btn" class="text-gray-400 hover:text-white">
-                        <i data-feather="x" class="w-6 h-6"></i>
-                    </button>
-                </div>
-                <p id="modal-details" class="text-gray-300"></p>
-            </div>
-        </div>
-    </div>
+</section>
 
-    <!-- Your Custom JavaScript -->
-    <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
+
