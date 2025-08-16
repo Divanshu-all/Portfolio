@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Divanshu - Certifications</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Scenery -->
+<div class="scene">
+    <div class="mountains layer"></div>
+    <div class="hills layer"></div>
+    <div class="forest layer"></div>
+</div>
+
+<!-- Background Canvas for Rain and Thunder -->
+<canvas id="background-canvas"></canvas>
+
+<!-- Navbar -->
+<header class="flex justify-between items-center px-8 py-6 fixed w-full top-0 bg-black/20 backdrop-blur-sm z-50">
+    <a href="index.html" class="text-xl font-bold">Divanshu.</a>
+    <nav class="space-x-8 text-gray-300">
+        <a href="index.html" class="hover:text-teal-400">Home</a>
+        <a href="project.html" class="hover:text-teal-400">Projects</a>
+        <a href="skills.html" class="hover:text-teal-400">Skills</a>
+        <a href="#" class="text-teal-400 font-semibold">Certifications</a>
+    </nav>
+</header>
+
+<!-- Certifications Section -->
+<section class="min-h-screen flex flex-col justify-center items-center px-6 py-24 relative z-10 w-full">
+    <div class="text-center mb-12 pt-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4" id="certs-title">My Certifications</h2>
+        <p class="text-gray-200 max-w-2xl mx-auto" id="certs-subtitle">A collection of my professional credentials and qualifications.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
+        <!-- Certificate Item 1: Python -->
+        <div class="cert-card rounded-lg p-6 opacity-0">
+            <img src="https://placehold.co/400x300/0f172a/2dd4bf?text=Python" alt="Python Certificate Preview" class="cert-preview">
+            <div class="flex flex-col">
+                <h3 class="text-xl font-bold text-teal-400 mb-2">Python for Everybody</h3>
+                <p class="text-gray-300 mb-4">Issued by: <span class="font-semibold">University of Michigan</span></p>
+                <div class="flex-grow"></div>
+                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/KGHF0GMPWY4Y" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded text-center transition-colors">
+                    View Credential
+                </a>
+            </div>
+        </div>
+        <!-- Certificate Item 2: Java -->
+        <div class="cert-card rounded-lg p-6 opacity-0">
+            <img src="https://placehold.co/400x300/0f172a/2dd4bf?text=Java" alt="Java Certificate Preview" class="cert-preview">
+            <div class="flex flex-col">
+                <h3 class="text-xl font-bold text-teal-400 mb-2">Java Development</h3>
+                <p class="text-gray-300 mb-4">Issued by: <span class="font-semibold">Arrow Edutech</span></p>
+                <div class="flex-grow"></div>
+                <a href="https://drive.google.com/file/d/1IiFhXx-unrciKQUou65ngzcpUReOK6HR/view" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded text-center transition-colors">
+                    View Credential
+                </a>
+            </div>
+        </div>
+        <!-- Certificate Item 3: LLM -->
+        <div class="cert-card rounded-lg p-6 opacity-0">
+            <img src="https://placehold.co/400x300/0f172a/2dd4bf?text=LLM" alt="LLM Certificate Preview" class="cert-preview">
+            <div class="flex flex-col">
+                <h3 class="text-xl font-bold text-teal-400 mb-2">LLM Course Unit 3: Fine-tuning Language Models</h3>
+                <p class="text-gray-300 mb-4">Issued by: <span class="font-semibold">Hugging Face</span></p>
+                <div class="flex-grow"></div>
+                <a href="https://huggingface.co/spaces/huggingface-course/unit_3_quiz/discussions/10#6888a2310e41b852fca0e9a5" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded text-center transition-colors">
+                    View Credential
+                </a>
+            </div>
+        </div>
+        <!-- Certificate Item 4: Model Context -->
+        <div class="cert-card rounded-lg p-6 opacity-0">
+            <img src="https://placehold.co/400x300/0f172a/2dd4bf?text=AI+Model" alt="Model Context Certificate Preview" class="cert-preview">
+            <div class="flex flex-col">
+                <h3 class="text-xl font-bold text-teal-400 mb-2">Model Context Protocol</h3>
+                <p class="text-gray-300 mb-4">Issued by: <span class="font-semibold">Hugging Face</span></p>
+                <div class="flex-grow"></div>
+                <a href="https://cas-bridge.xethub.hf.co/xet-bridge-us/682f5d0ff0af4dc8a20649c1/2a40d51a380e1ec9fca0ab1238d88e100a31d607d0609d8ca4a7d6e6b25f192c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha26=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20250816%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250816T074530Z&X-Amz-Expires=3600&X-Amz-Signature=b9b2dea0a06a462e638382a36c218bcd8fe4a2a3f4b90259ce7cff10c3a10e44&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=686916ea283604c28099598d&response-content-disposition=inline%3B+filename*%3DUTF-8%27%272025-07-17.png%3B+filename%3D%222025-07-17.png%22%3B&response-content-type=image%2Fpng&x-id=GetObject&Expires=1755333930&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc1NTMzMzkzMH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82ODJmNWQwZmYwYWY0ZGM4YTIwNjQ5YzEvMmE0MGQ1MWEzODBlMWVjOWZjYTBhYjEyMzhkODhlMTAwYTMxZDYwN2QwNjA5ZDhjYTRhN2Q2ZTZiMjVmMTkyYyoifV19&Signature=eeFpQy-MfIU58Rr-n1GHgWnnCfBGfy3UP4unDfhmtPenXM8O9Igbl6Niq4UvNz23KXs9350okZkphuJbkrDdYl4vDSLWvx2QKQASVUcFrNgXBj4VLAX9ay13bymYmykZ68WwrGIX3cNlRBKmcTF7StaeWuKu3lEmT7bxknCKejjVmModf0N37fomPWnbJtK9GWjoz9D8ZFIAdcu9mQWwnVLxjFbBqXf-u0SchvJB6UsEfuWfr0RWXiMa-YorfWuz%7E6gmjTU876NbaKIdnCjnVT9JOhGYkDxHLSTDWvb8PZEp%7ESOVDhHZx%7E0RNSjjbxIMfzxUje6j37BqpN7lD80oSQ__&Key-Pair-Id=K2L8F4GPSG1IFC" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded text-center transition-colors">
+                    View Credential
+                </a>
+            </div>
+        </div>
+        <!-- Certificate Item 5: n8n -->
+        <div class="cert-card rounded-lg p-6 opacity-0">
+            <img src="https://placehold.co/400x300/0f172a/2dd4bf?text=n8n" alt="n8n Certificate Preview" class="cert-preview">
+            <div class="flex flex-col">
+                <h3 class="text-xl font-bold text-teal-400 mb-2">Course Level 2</h3>
+                <p class="text-gray-300 mb-4">Issued by: <span class="font-semibold">n8n</span></p>
+                <div class="flex-grow"></div>
+                <a href="https://drive.google.com/file/d/1skYdPonbc12YBYgNFhTV6EmHpa33Q0TV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="mt-auto inline-block bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded text-center transition-colors">
+                    View Credential
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
