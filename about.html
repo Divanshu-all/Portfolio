@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divanshu - About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <div class="scene">
+        <div class="mountains layer"></div>
+        <div class="hills layer"></div>
+        <div class="forest layer"></div>
+    </div>
+    <canvas id="background-canvas"></canvas>
+
+    <header class="flex justify-between items-center px-8 py-6 fixed w-full top-0 bg-black/20 backdrop-blur-sm z-50">
+        <a href="index.html" class="text-xl font-bold">Divanshu.</a>
+        <nav class="space-x-8 text-gray-300">
+            <a href="index.html" class="hover:text-teal-400">Home</a>
+            <a href="#" class="text-teal-400 font-semibold">About Me</a>
+            <a href="project.html" class="hover:text-teal-400">Projects</a>
+            <a href="skills.html" class="hover:text-teal-400">Skills</a>
+            <a href="certifications.html" class="hover:text-teal-400">Certifications</a>
+        </nav>
+    </header>
+
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 py-24 relative z-10 w-full">
+        <div class="text-center mb-12 pt-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4" id="about-title">About Me</h2>
+            <p class="text-gray-200 max-w-3xl mx-auto text-lg" id="about-intro">
+                I'm a 21-year-old developer specializing in AI and automation. I build intelligent, efficient, and scalable solutions that solve real-world problems.
+            </p>
+        </div>
+
+        <div class="timeline-container max-w-4xl w-full mx-auto">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="text-2xl font-bold text-teal-400 mb-2">My Foundation</h3>
+                    <p class="text-gray-300">I began my journey with a Diploma in Computer Science, building a strong foundation in programming fundamentals and logical problem-solving.</p>
+                    <div class="text-sm text-gray-400 mt-2">Atal Bihari Vajpayee Govt Institute of Eng. & Tech. (2021 - 2023)</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="text-2xl font-bold text-teal-400 mb-2">Diving Deeper into Tech</h3>
+                    <p class="text-gray-300">Currently in my final year of a B.E. in Computer Science, I am diving deeper into advanced topics, focusing on AI, large language models, and full-stack development.</p>
+                    <div class="text-sm text-gray-400 mt-2">Tr Abhilashi Memorial Institute Of Engineering and Technology (2023 - Present)</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 class="text-2xl font-bold text-teal-400 mb-2">My Philosophy</h3>
+                    <p class="text-gray-300">I believe in the power of automation and intelligence to streamline complex processes. My goal is always to write clean, high-quality code and to be a lifelong learner in a field that's constantly evolving.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script> 
+    <script src="about.js"></script>
+</body>
+</html>
