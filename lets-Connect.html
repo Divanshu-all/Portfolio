@@ -8,18 +8,123 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* --- Inline CSS to Center Content --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(#0f172a, #1e293b);
+            color: white;
+            /* Flexbox properties to center the form */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+            overflow: hidden; 
+        }
+
+        #background-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+        }
+        
+        /* --- Scenery and Form Styles --- */
+        .scene {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+        }
+        .layer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-repeat: repeat-x;
+            background-position: bottom;
+        }
+        .mountains {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><path d="M0,100 L100,40 L200,120 L300,60 L400,140 L500,80 L600,130 L700,50 L800,110 L800,200 L0,200 Z" fill="%23334155"/></svg>');
+            height: 40%;
+            bottom: 10%;
+            opacity: 0.6;
+        }
+        .hills {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><path d="M0,100 Q150,20 300,100 T600,100 T800,100 L800,200 L0,200 Z" fill="%23475569"/></svg>');
+            height: 35%;
+            bottom: 5%;
+            opacity: 0.8;
+        }
+        .forest {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><path d="M50,200 L70,150 L90,200 Z M100,200 L120,140 L140,200 Z M160,200 L180,160 L200,200 Z M220,200 L240,150 L260,200 Z M280,200 L300,140 L320,200 Z M340,200 L360,160 L380,200 Z M400,200 L420,150 L440,200 Z M460,200 L480,140 L500,200 Z M520,200 L540,160 L560,200 Z M580,200 L600,150 L620,200 Z M640,200 L660,140 L680,200 Z M700,200 L720,160 L740,200 Z" fill="%231e293b"/></svg>');
+            height: 25%;
+            bottom: 0;
+        }
+        .form {
+            --background: #1e293b;
+            --font-color: #e2e8f0;
+            --bg-color: #334155;
+            --main-color: #475569;
+            padding: 20px;
+            background: var(--background);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+            width: 100%;
+            max-width: 400px;
+            z-index: 10;
+        }
+        .form > p {
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+        }
+        .form > p > span {
+            color: #2dd4bf;
+            font-weight: 600;
+            font-size: 17px;
+        }
+        .oauthButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 0 15px;
+            width: 100%;
+            max-width: 280px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            background-color: var(--bg-color);
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--font-color);
+            cursor: pointer;
+            transition: all 250ms;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+        }
+        .oauthButton:hover { color: #e8e8e8; }
+        .icon { width: 1.5rem; height: 1.5rem; }
+    </style>
 </head>
 <body>
     
-    <!-- Background Scenery -->
     <div class="scene">
         <div class="mountains layer"></div>
         <div class="hills layer"></div>
         <div class="forest layer"></div>
     </div>
 
-    <!-- Background Canvas for Rain and Thunder -->
     <canvas id="background-canvas"></canvas>
 
     <div class="form">
@@ -27,28 +132,89 @@
             Hi,<span>Let's Connect</span>
         </p>
         
-        <!-- Gmail Button -->
         <a href="mailto:divanshuthakur46@gmail.com" class="oauthButton">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
-                <path d="M1 1h22v22H1z" fill="none"></path>
-            </svg>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path><path d="M1 1h22v22H1z" fill="none"></path></svg>
             Continue with Gmail
         </a>
         
-        <!-- LinkedIn Button -->
         <a href="https://www.linkedin.com/in/divanshu-thakur-b5b50430b" target="_blank" rel="noopener noreferrer" class="oauthButton">
-            <svg class="icon linkedin" fill="currentColor" viewBox="0 0 448 512">
-                <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
-            </svg>
+            <svg class="icon linkedin" fill="currentColor" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
             Continue with LinkedIn
         </a>
     </div>
 
-<script src="script.js"></script>
+    <script>
+        // --- Inline JavaScript for Background Animation ---
+        function initThunderstormAnimation() {
+            const canvas = document.getElementById('background-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let raindrops = [];
+            let lightning = [];
+
+            class Raindrop {
+                constructor(x, y, length, speed) { this.x = x; this.y = y; this.length = length; this.speed = speed; }
+                draw() {
+                    ctx.beginPath(); ctx.moveTo(this.x, this.y); ctx.lineTo(this.x, this.y + this.length);
+                    ctx.strokeStyle = 'rgba(173, 216, 230, 0.4)'; ctx.lineWidth = 1; ctx.stroke();
+                }
+                update() {
+                    this.y += this.speed;
+                    if (this.y > canvas.height) { this.y = -this.length; this.x = Math.random() * canvas.width; }
+                    this.draw();
+                }
+            }
+
+            class Lightning {
+                constructor() {
+                    this.x = Math.random() * canvas.width; this.y = 0;
+                    this.path = [{ x: this.x, y: this.y }]; this.alpha = 1;
+                    while(this.path[this.path.length - 1].y < canvas.height * 0.7) {
+                        const last = this.path[this.path.length - 1];
+                        this.path.push({ x: last.x + (Math.random() * 20 - 10), y: last.y + (Math.random() * 20 + 10) });
+                    }
+                }
+                draw() {
+                    ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.beginPath();
+                    ctx.moveTo(this.path[0].x, this.path[0].y);
+                    for(let i = 1; i < this.path.length; i++) { ctx.lineTo(this.path[i].x, this.path[i].y); }
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`; ctx.lineWidth = 2; ctx.stroke();
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.1})`; ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.restore(); this.alpha -= 0.04;
+                }
+            }
+
+            function init() {
+                raindrops = [];
+                for (let i = 0; i < 100; i++) {
+                    raindrops.push(new Raindrop(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 15 + 5, Math.random() * 4 + 1));
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                raindrops.forEach(drop => drop.update());
+                if (Math.random() < 0.003) { lightning.push(new Lightning()); }
+                lightning.forEach((bolt, index) => {
+                    bolt.draw();
+                    if (bolt.alpha <= 0) { lightning.splice(index, 1); }
+                });
+            }
+            
+            window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); });
+            init();
+            animate();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initThunderstormAnimation();
+        });
+    </script>
 
 </body>
 </html>
