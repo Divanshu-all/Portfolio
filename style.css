@@ -3,6 +3,12 @@
     --primary-accent: #2dd4bf; 
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     overflow-y: auto;
@@ -54,7 +60,90 @@ body {
     bottom: 0;
 }
 
-/* --- Page Specific Styles --- */
+/* Mobile Menu Styles */
+.mobile-menu-button {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.mobile-menu-button span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.mobile-menu-button.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-button.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Navigation responsive */
+@media screen and (max-width: 768px) {
+    .mobile-menu-button {
+        display: flex;
+    }
+    
+    header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        flex-direction: column;
+        align-items: flex-start;
+        border-left: 1px solid rgba(45, 212, 191, 0.3);
+    }
+    
+    header nav.active {
+        right: 0;
+    }
+    
+    header nav a {
+        display: block;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+}
+
+/* Hero Section Responsive */
+@media screen and (max-width: 768px) {
+    #hero-title {
+        font-size: 2rem !important;
+    }
+    
+    #hero-subtext {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+    
+    #hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    #hero-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+}
 
 /* index.html: Hero Section */
 .typing::after {
@@ -73,18 +162,31 @@ body {
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
+
 .cert-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px var(--primary-accent);
 }
+
 .cert-preview {
-    width: 120px;
+    width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 0.25rem;
     flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .cert-card {
+        flex-direction: row;
+    }
+    
+    .cert-preview {
+        width: 120px;
+    }
 }
 
 /* skills.html: Skill Bars */
@@ -97,14 +199,16 @@ body {
     border-radius: 4px;
     overflow: hidden;
 }
+
 .skill-bar-fill {
     position: relative;
     height: 100%;
-    width: 0%; /* Animated by GSAP */
+    width: 0%;
     background-color: var(--primary-accent);
     box-shadow: 0 0 8px var(--primary-accent), 0 0 12px var(--primary-accent);
     overflow: hidden;
 }
+
 .skill-bar-fill::after {
     content: '';
     position: absolute;
@@ -122,6 +226,7 @@ body {
     transform: rotate(45deg);
     animation: shine 2.5s ease-in-out infinite;
 }
+
 @keyframes shine {
     0% { left: -25%; }
     50% { left: 105%; }
@@ -134,12 +239,35 @@ body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(71, 85, 105, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     border-radius: 0.5rem;
+    min-height: 400px;
 }
+
 .project-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@media screen and (max-width: 768px) {
+    .project-card {
+        max-width: 100%;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* Project slider responsive */
+@media screen and (max-width: 1024px) {
+    #projectSlider > div {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    
+    #projectSlider .project-card {
+        margin-bottom: 2rem;
+    }
 }
 
 /* lets-Connect.html: Form Styles */
@@ -163,17 +291,20 @@ body {
     max-width: 400px;
     z-index: 10;
 }
+
 .form > p {
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 15px;
     text-align: center;
 }
+
 .form > p > span {
     color: var(--primary-accent);
     font-weight: 600;
     font-size: 17px;
 }
+
 .oauthButton {
     display: flex;
     justify-content: center;
@@ -197,6 +328,7 @@ body {
     z-index: 1;
     text-decoration: none;
 }
+
 .oauthButton::before {
     content: "";
     position: absolute;
@@ -209,17 +341,54 @@ body {
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
 }
+
 .oauthButton:hover {
     color: #e8e8e8;
     border-color: #64748b;
 }
+
 .oauthButton:hover .icon.linkedin {
      fill: #e8e8e8;
 }
+
 .oauthButton:hover::before {
     width: 100%;
 }
+
 .icon {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        padding: 15px;
+        max-width: 95%;
+    }
+    
+    .oauthButton {
+        font-size: 14px;
+        height: 45px;
+    }
+}
+
+/* General responsive padding and margins */
+@media screen and (max-width: 768px) {
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+    }
+    
+    h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    header {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
 }

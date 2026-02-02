@@ -1,3 +1,33 @@
+// --- Mobile Menu Toggle ---
+function initMobileMenu() {
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+                menuBtn.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+}
+
 // --- Thunderstorm Animation (Common to all pages) ---
 function initThunderstormAnimation() {
     const canvas = document.getElementById('background-canvas');
@@ -157,20 +187,82 @@ function initProjectsPage() {
     const slider = document.getElementById('projectSlider');
     const nextBtn = document.getElementById('nextProjects');
     const prevBtn = document.getElementById('prevProjects');
+    const paginationDots = document.querySelectorAll('.pagination-dot');
     let offset = 0;
+    let currentPage = 0;
 
-    nextBtn.addEventListener('click', () => {
-        offset = -100;
-        slider.style.transform = `translateX(${offset}%)`;
-        nextBtn.classList.add('hidden');
-        prevBtn.classList.remove('hidden');
-    });
+    function updatePagination() {
+        paginationDots.forEach((dot, index) => {
+            if (index === currentPage) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        offset = 0;
-        slider.style.transform = `translateX(${offset}%)`;
-        prevBtn.classList.add('hidden');
-        nextBtn.classList.remove('hidden');
+    // Desktop navigation
+    if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+            offset = -100;
+            currentPage = 1;
+            slider.style.transform = `translateX(${offset}%)`;
+            nextBtn.classList.add('hidden');
+            prevBtn.classList.remove('hidden');
+            updatePagination();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            offset = 0;
+            currentPage = 0;
+            slider.style.transform = `translateX(${offset}%)`;
+            prevBtn.classList.add('hidden');
+            nextBtn.classList.remove('hidden');
+            updatePagination();
+        });
+    }
+
+    // Mobile touch navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    if (slider) {
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - next
+                if (currentPage === 0) {
+                    currentPage = 1;
+                    slider.style.transform = 'translateX(-100%)';
+                    updatePagination();
+                }
+            }
+            if (touchEndX > touchStartX + 50) {
+                // Swipe right - previous
+                if (currentPage === 1) {
+                    currentPage = 0;
+                    slider.style.transform = 'translateX(0)';
+                    updatePagination();
+                }
+            }
+        }
+    }
+
+    // Pagination dots click
+    paginationDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentPage = index;
+            slider.style.transform = `translateX(-${currentPage * 100}%)`;
+            updatePagination();
+        });
     });
     
     if (typeof feather !== 'undefined') {
@@ -221,6 +313,9 @@ function initCertsPage() {
 
 // --- Main Execution ---
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize mobile menu on all pages
+    initMobileMenu();
+    
     // Determine which page is loaded by checking for a unique element
     if (document.getElementById('hero-title')) {
         initHomePage();

@@ -26,9 +26,14 @@
 <canvas id="background-canvas"></canvas>
 
 <!-- Navbar -->
-<header class="flex justify-between items-center px-8 py-6 fixed w-full top-0 bg-black/20 backdrop-blur-sm z-50">
+<header class="flex justify-between items-center px-4 md:px-8 py-6 fixed w-full top-0 bg-black/20 backdrop-blur-sm z-50">
     <a href="index.html" class="text-xl font-bold">Divanshu.</a>
-    <nav class="space-x-8 text-gray-300">
+    <div class="mobile-menu-button" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="space-x-8 text-gray-300" id="navMenu">
         <a href="index.html" class="hover:text-teal-400">Home</a>
         <a href="#" class="text-teal-400 font-semibold">Projects</a>
         <a href="skills.html" class="hover:text-teal-400">Skills</a>
@@ -37,76 +42,76 @@
 </header>
 
 <!-- Projects Section -->
-<section class="min-h-screen flex flex-col justify-center items-center px-6 py-24 relative z-10 w-full">
+<section class="min-h-screen flex flex-col justify-center items-center px-4 md:px-6 py-24 relative z-10 w-full">
     <div class="text-center mb-12 pt-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4" id="projects-title">My Projects</h2>
-        <p class="text-gray-200 max-w-2xl mx-auto" id="projects-subtitle">A selection of my work, showcasing my skills in AI, web development, and automation.</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" id="projects-title">My Projects</h2>
+        <p class="text-gray-200 max-w-2xl mx-auto text-sm md:text-base px-4" id="projects-subtitle">A selection of my work, showcasing my skills in AI, web development, and automation.</p>
     </div>
 
-    <div class="relative max-w-6xl mx-auto w-full">
-        <!-- Arrow Buttons -->
-        <button id="prevProjects" class="absolute left-0 -translate-x-1/2 top-1/2 transform -translate-y-1/2 z-10 bg-slate-700/50 text-white shadow p-2 rounded-full hover:bg-slate-600 hidden">
+    <div class="relative max-w-6xl mx-auto w-full px-4">
+        <!-- Arrow Buttons - Hidden on mobile -->
+        <button id="prevProjects" class="hidden lg:block absolute left-0 -translate-x-1/2 top-1/2 transform -translate-y-1/2 z-10 bg-slate-700/50 text-white shadow p-2 rounded-full hover:bg-slate-600">
           <i data-feather="arrow-left"></i>
         </button>
-        <button id="nextProjects" class="absolute right-0 translate-x-1/2 top-1/2 transform -translate-y-1/2 z-10 bg-slate-700/50 text-white shadow p-2 rounded-full hover:bg-slate-600">
+        <button id="nextProjects" class="hidden lg:block absolute right-0 translate-x-1/2 top-1/2 transform -translate-y-1/2 z-10 bg-slate-700/50 text-white shadow p-2 rounded-full hover:bg-slate-600">
           <i data-feather="arrow-right"></i>
         </button>
     
         <!-- Wrapper -->
         <div class="overflow-hidden">
-          <div id="projectSlider" class="flex transition-transform duration-700 ease-in-out w-full" style="transform: translateX(0);">
+          <div id="projectSlider" class="flex flex-col lg:flex-row transition-transform duration-700 ease-in-out w-full" style="transform: translateX(0);">
             
             <!-- Group 1 -->
-            <div class="flex w-full justify-center space-x-6 shrink-0">
+            <div class="flex flex-col lg:flex-row w-full justify-center lg:space-x-6 shrink-0">
               <!-- Project 1 -->
-              <div class="project-card p-6 flex flex-col">
-                <h3 class="text-2xl font-bold text-teal-400 mb-3">AI-Powered Chatbot</h3>
-                <p class="text-gray-300 flex-grow mb-4">A conversational AI portfolio assistant, built with natural language processing to understand and respond to user queries in real-time.</p>
+              <div class="project-card p-6 flex flex-col mb-6 lg:mb-0">
+                <h3 class="text-xl md:text-2xl font-bold text-teal-400 mb-3">AI-Powered Chatbot</h3>
+                <p class="text-gray-300 flex-grow mb-4 text-sm md:text-base">A conversational AI portfolio assistant, built with natural language processing to understand and respond to user queries in real-time.</p>
                 <div class="mb-4">
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Python</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Gradio</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">OpenAI</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">SendGrid</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Python</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Gradio</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">OpenAI</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">SendGrid</span>
                 </div>
-                <div class="flex gap-4 mt-auto">
-                    <a href="https://huggingface.co/spaces/divanshuthakur111/Portfolio-Chat-Assistant" target="_blank" class="bg-teal-500 px-4 py-2 rounded-lg hover:bg-teal-600 transition text-sm">Live Demo</a>
-                    <a href="https://huggingface.co/spaces/divanshuthakur111/Portfolio-Chat-Assistant/tree/main" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-sm flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.004zM8.45 7.425a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zm7.101 0a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zM12 18a5.4 5.4 0 01-4.2-1.92.6.6 0 01.96-.72 4.2 4.2 0 006.48 0 .6.6 0 01.96.72A5.4 5.4 0 0112 18z"/></svg>
+                <div class="flex flex-col sm:flex-row gap-4 mt-auto">
+                    <a href="https://huggingface.co/spaces/divanshuthakur111/Portfolio-Chat-Assistant" target="_blank" class="bg-teal-500 px-4 py-2 rounded-lg hover:bg-teal-600 transition text-xs md:text-sm text-center">Live Demo</a>
+                    <a href="https://huggingface.co/spaces/divanshuthakur111/Portfolio-Chat-Assistant/tree/main" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-xs md:text-sm flex items-center justify-center">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.004zM8.45 7.425a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zm7.101 0a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zM12 18a5.4 5.4 0 01-4.2-1.92.6.6 0 01.96-.72 4.2 4.2 0 006.48 0 .6.6 0 01.96.72A5.4 5.4 0 0112 18z"/></svg>
                         Source Code
                     </a>
                 </div>
               </div>
     
               <!-- Project 2 -->
-              <div class="project-card p-6 flex flex-col">
-                <h3 class="text-2xl font-bold text-teal-400 mb-3">Local News Digest AI</h3>
-                <p class="text-gray-300 flex-grow mb-4">An AI-powered agent that scrapes local news for a specified city and generates a concise news digest.</p>
+              <div class="project-card p-6 flex flex-col mb-6 lg:mb-0">
+                <h3 class="text-xl md:text-2xl font-bold text-teal-400 mb-3">Local News Digest AI</h3>
+                <p class="text-gray-300 flex-grow mb-4 text-sm md:text-base">An AI-powered agent that scrapes local news for a specified city and generates a concise news digest.</p>
                 <div class="mb-4">
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Python</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI-tools</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Python</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI-tools</span>
                 </div>
                 <div class="flex gap-4 mt-auto">
-                    <a href="https://github.com/Divanshu-all/Local-News-Digest-AI?tab=readme-ov-file#local-news-digest-ai" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-sm flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.397.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                    <a href="https://github.com/Divanshu-all/Local-News-Digest-AI?tab=readme-ov-file#local-news-digest-ai" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-xs md:text-sm flex items-center justify-center w-full">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.397.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                         Source Code
                     </a>
                 </div>
               </div>
     
               <!-- Project 3 -->
-              <div class="project-card p-6 flex flex-col">
-                 <h3 class="text-2xl font-bold text-teal-400 mb-3">n8n Student Performance Workflow</h3>
-                <p class="text-gray-300 flex-grow mb-4">An automated student performance tracking system using n8n. It identifies at-risk students and sends real-time alerts via Gmail, Slack, and WhatsApp.</p>
+              <div class="project-card p-6 flex flex-col mb-6 lg:mb-0">
+                 <h3 class="text-xl md:text-2xl font-bold text-teal-400 mb-3">n8n Student Performance Workflow</h3>
+                <p class="text-gray-300 flex-grow mb-4 text-sm md:text-base">An automated student performance tracking system using n8n. It identifies at-risk students and sends real-time alerts via Gmail, Slack, and WhatsApp.</p>
                 <div class="mb-4">
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">n8n</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Gmail</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Slack</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Twilio</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">n8n</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Gmail</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Slack</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Twilio</span>
                 </div>
                 <div class="flex gap-4 mt-auto">
-                    <a href="https://github.com/Divanshu-all/n8n-student-performance-workflow-" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-sm flex items-center justify-center">
-                       <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.397.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                    <a href="https://github.com/Divanshu-all/n8n-student-performance-workflow-" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-xs md:text-sm flex items-center justify-center w-full">
+                       <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.397.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                         Source Code
                     </a>
                 </div>
@@ -114,64 +119,88 @@
             </div>
     
             <!-- Group 2 -->
-            <div class="flex w-full justify-center space-x-6 shrink-0">
+            <div class="flex flex-col lg:flex-row w-full justify-center lg:space-x-6 shrink-0">
               <!-- Project 4 -->
-              <div class="project-card p-6 flex flex-col">
-                <h3 class="text-2xl font-bold text-teal-400 mb-3">Website Analyzer</h3>
-                <p class="text-gray-300 flex-grow mb-4">An AI agent that analyzes a website's content, identifies the technologies used, and provides a comprehensive report.</p>
+              <div class="project-card p-6 flex flex-col mb-6 lg:mb-0">
+                <h3 class="text-xl md:text-2xl font-bold text-teal-400 mb-3">Website Analyzer</h3>
+                <p class="text-gray-300 flex-grow mb-4 text-sm md:text-base">An AI agent that analyzes a website's content, identifies the technologies used, and provides a comprehensive report.</p>
                 <div class="mb-4">
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Python</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Gradio</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI-tools</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Python</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Gradio</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">crewAI-tools</span>
                 </div>
-                <div class="flex gap-4 mt-auto">
-                    <a href="https://huggingface.co/spaces/divanshuthakur111/Website-Analyzier" target="_blank" class="bg-teal-500 px-4 py-2 rounded-lg hover:bg-teal-600 transition text-sm flex items-center justify-center">
+                <div class="flex flex-col sm:flex-row gap-4 mt-auto">
+                    <a href="https://huggingface.co/spaces/divanshuthakur111/Website-Analyzier" target="_blank" class="bg-teal-500 px-4 py-2 rounded-lg hover:bg-teal-600 transition text-xs md:text-sm flex items-center justify-center">
                         Live Demo
                     </a>
-                    <a href="https://huggingface.co/spaces/divanshuthakur111/Website-Analyzier/tree/main" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-sm flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.004zM8.45 7.425a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zm7.101 0a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zM12 18a5.4 5.4 0 01-4.2-1.92.6.6 0 01.96-.72 4.2 4.2 0 006.48 0 .6.6 0 01.96.72A5.4 5.4 0 0112 18z"/></svg>
+                    <a href="https://huggingface.co/spaces/divanshuthakur111/Website-Analyzier/tree/main" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-xs md:text-sm flex items-center justify-center">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.996 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.004zM8.45 7.425a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zm7.101 0a1.44 1.44 0 110 2.88 1.44 1.44 0 010-2.88zM12 18a5.4 5.4 0 01-4.2-1.92.6.6 0 01.96-.72 4.2 4.2 0 006.48 0 .6.6 0 01.96.72A5.4 5.4 0 0112 18z"/></svg>
                         Source Code
                     </a>
                 </div>
               </div>
     
               <!-- Project 5 -->
-              <div class="project-card p-6 flex flex-col">
-                <h3 class="text-2xl font-bold text-teal-400 mb-3">Smart AI Gmail Responder</h3>
-                <p class="text-gray-300 flex-grow mb-4">An intelligent email assistant that classifies incoming emails and automatically drafts polite, context-aware replies using the OpenAI and Gmail APIs.</p>
+              <div class="project-card p-6 flex flex-col mb-6 lg:mb-0">
+                <h3 class="text-xl md:text-2xl font-bold text-teal-400 mb-3">Smart AI Gmail Responder</h3>
+                <p class="text-gray-300 flex-grow mb-4 text-sm md:text-base">An intelligent email assistant that classifies incoming emails and automatically drafts polite, context-aware replies using the OpenAI and Gmail APIs.</p>
                 <div class="mb-4">
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">OpenAI</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Gmail API</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">Plyer</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">OpenAI</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Gmail API</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">Plyer</span>
                 </div>
                 <div class="flex gap-4 mt-auto">
-                    <a href="https://github.com/Divanshu-all/Smart-AI-Gmail-Responder/" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-sm flex items-center justify-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.397.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                    <a href="https://github.com/Divanshu-all/Smart-AI-Gmail-Responder/" target="_blank" class="border border-gray-500 px-4 py-2 rounded-lg hover:border-teal-500 transition text-xs md:text-sm flex items-center justify-center w-full">
+                        <svg class="w-4 h-4 md:w-5 md:h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.397.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                         Source Code
                     </a>
                 </div>
               </div>
     
               <!-- Project 6 -->
-              <div class="project-card p-6 flex flex-col">
-                <h3 class="text-2xl font-bold text-teal-400 mb-3">Portfolio</h3>
-                <p class="text-gray-300 flex-grow mb-4">You are currently viewing this project. It's a responsive and animated portfolio website built to showcase my skills and work.</p>
+              <div class="project-card p-6 flex flex-col mb-6 lg:mb-0">
+                <h3 class="text-xl md:text-2xl font-bold text-teal-400 mb-3">Portfolio</h3>
+                <p class="text-gray-300 flex-grow mb-4 text-sm md:text-base">You are currently viewing this project. It's a responsive and animated portfolio website built to showcase my skills and work.</p>
                 <div class="mb-4">
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">HTML</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">TailwindCSS</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">JavaScript</span>
-                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-200 mr-2 mb-2">GSAP</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">HTML</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">TailwindCSS</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">JavaScript</span>
+                    <span class="inline-block bg-gray-700 rounded-full px-3 py-1 text-xs md:text-sm font-semibold text-gray-200 mr-2 mb-2">GSAP</span>
                 </div>
                 <div class="flex gap-4 mt-auto">
-                     <button disabled class="bg-gray-600 text-gray-400 cursor-not-allowed px-4 py-2 rounded-lg text-sm">Currently Viewing</button>
+                     <button disabled class="bg-gray-600 text-gray-400 cursor-not-allowed px-4 py-2 rounded-lg text-xs md:text-sm w-full">Currently Viewing</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
+        <!-- Mobile pagination dots -->
+        <div class="flex justify-center mt-8 lg:hidden">
+            <div class="flex gap-2">
+                <button class="pagination-dot active" data-page="0"></button>
+                <button class="pagination-dot" data-page="1"></button>
+            </div>
+        </div>
       </div>
 </section>
+
+<style>
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-dot.active {
+    background-color: #2dd4bf;
+}
+</style>
 
 <script src="script.js"></script>
 

@@ -13,20 +13,22 @@
 </head>
 <body>
 
-<!-- New Background Scenery -->
 <div class="scene">
     <div class="mountains layer"></div>
     <div class="hills layer"></div>
     <div class="forest layer"></div>
 </div>
 
-<!-- Background Canvas for Rain and Thunder -->
 <canvas id="background-canvas"></canvas>
 
-<!-- Navbar -->
-<header class="flex justify-between items-center px-8 py-6 fixed w-full top-0 bg-black/20 backdrop-blur-sm z-50">
+<header class="flex justify-between items-center px-4 md:px-8 py-6 fixed w-full top-0 bg-black/20 backdrop-blur-sm z-50">
     <a href="index.html" class="text-xl font-bold">Divanshu.</a>
-    <nav class="space-x-8 text-gray-300">
+    <div class="mobile-menu-button" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="space-x-8 text-gray-300" id="navMenu">
         <a href="index.html" class="hover:text-teal-400">Home</a>
         <a href="project.html" class="hover:text-teal-400">Projects</a>
         <a href="#" class="text-teal-400 font-semibold">Skills</a>
@@ -34,100 +36,97 @@
     </nav>
 </header>
 
-<!-- Skills Section -->
-<section class="min-h-screen flex flex-col justify-center items-center px-6 py-24 relative z-10 w-full">
+<section class="min-h-screen flex flex-col justify-center items-center px-4 md:px-6 py-24 relative z-10 w-full">
     <div class="text-center mb-16 pt-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4" id="skills-title">My Skills</h2>
-        <p class="text-gray-200 max-w-2xl mx-auto" id="skills-subtitle">A breakdown of my technical abilities and expertise.</p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" id="skills-title">My Skills</h2>
+        <p class="text-gray-200 max-w-2xl mx-auto text-sm md:text-base px-4" id="skills-subtitle">A breakdown of my technical abilities and expertise.</p>
     </div>
 
-    <!-- New Skill Bar Layout -->
-    <div class="max-w-4xl w-full mx-auto space-y-8">
-        <!-- Skill Item: Python -->
+    <div class="max-w-4xl w-full mx-auto space-y-6 md:space-y-8 px-4">
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">Python</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">Python</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="90"></div>
             </div>
         </div>
-        <!-- Skill Item: LangChain & LLMs -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">LangChain & LLMs</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">LangChain & LLMs</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="90"></div>
             </div>
         </div>
-        <!-- Skill Item: AI Chatbots -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">AI Chatbots</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">AI Chatbots</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="92"></div>
             </div>
         </div>
-        <!-- Skill Item: HTML & Tailwind -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">HTML & Tailwind</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">HTML & Tailwind</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="95"></div>
             </div>
         </div>
-        <!-- Skill Item: Hugging Face -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">Hugging Face</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">Hugging Face</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="85"></div>
             </div>
         </div>
-        <!-- Skill Item: Multipurpose Agents -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">Multipurpose Agents</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">Multipurpose Agents</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="88"></div>
             </div>
         </div>
-        <!-- Skill Item: Google Cloud & API -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">Google Cloud & API</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">Google Cloud & API</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="80"></div>
             </div>
         </div>
-        <!-- Skill Item: n8n Automation -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">n8n Automation</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">n8n Automation</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="80"></div>
             </div>
         </div>
-        <!-- Skill Item: JavaScript & GSAP -->
+        
         <div class="skill-bar-item opacity-0">
             <div class="flex justify-between items-center mb-2">
-                <span class="font-semibold text-lg text-gray-100">JavaScript & GSAP</span>
-                <span class="font-bold text-teal-400 text-lg"><span class="skill-percent-value">0</span>%</span>
+                <span class="font-semibold text-base md:text-lg text-gray-100">JavaScript & GSAP</span>
+                <span class="font-bold text-teal-400 text-base md:text-lg"><span class="skill-percent-value">0</span>%</span>
             </div>
             <div class="skill-bar-container">
                 <div class="skill-bar-fill" data-skill-level="75"></div>

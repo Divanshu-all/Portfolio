@@ -14,7 +14,7 @@
     transform: translateX(-50%);
     width: 3px;
     height: 100%;
-    background-color: #334155; /* slate-700 */
+    background-color: #334155;
     border-radius: 2px;
 }
 
@@ -30,7 +30,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: #1e293b; /* slate-800 */
+    background-color: #1e293b;
     border: 4px solid var(--primary-accent);
     top: 2rem;
     border-radius: 50%;
@@ -66,8 +66,6 @@
     border-radius: 0.5rem;
     position: relative;
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    
-    /* GSAP will animate these properties */
     opacity: 0;
     transform: translateY(20px);
 }
@@ -116,9 +114,22 @@
         left: 21px;
     }
 
+    .timeline-item:nth-child(odd) .timeline-content::before,
     .timeline-item:nth-child(even) .timeline-content::before {
          left: -10px;
          border-width: 10px 10px 10px 0;
          border-color: transparent #4a5a72 transparent transparent;
+    }
+    
+    .timeline-content {
+        padding: 1rem;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.9rem;
     }
 }
